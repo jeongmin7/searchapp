@@ -5,7 +5,7 @@ import AllResult from "./components/Results/AllResult";
 import SearchInput from "./components/SearchInput";
 import NewsResult from "./components/Results/NewsResult";
 import ImageResult from "./components/Results/ImageResult";
-
+import NotFound from "./pages/NotFound"
 function App() {
   return (
     <Container>
@@ -18,6 +18,7 @@ function App() {
         <Route path="/news" element={<NewsResult />} />
         <Route path="/image" element={<ImageResult />} />
         <Route path="/all" element={<AllResult />} />
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </Container>
   );
