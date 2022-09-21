@@ -1,14 +1,37 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+import NavigationBar from "./components/NavigationBar";
+import AllResult from "./components/Results/AllResult";
 import SearchInput from "./components/SearchInput";
+import NewsResult from "./components/Results/NewsResult";
+import ImageResult from "./components/Results/ImageResult";
 
 function App() {
   return (
-    <div className="bg-slate-50 min-h-screen ">
-      <div className="flex flex-wrap justify-center relative">
+    <Container>
+      <InputContainer>
         <SearchInput />
-      </div>
-      {/* 검색결과 */}
-    </div>
+        <NavigationBar />
+      </InputContainer>
+      <Routes>
+        <Route path="/" element={<Navigate to="/all" />} />
+        <Route path="/news" element={<NewsResult />} />
+        <Route path="/image" element={<ImageResult />} />
+        <Route path="/all" element={<AllResult />} />
+      </Routes>
+    </Container>
   );
 }
 
 export default App;
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+`;
